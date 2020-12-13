@@ -1,206 +1,169 @@
-package bibliothéque_1;
+package jeBiref4;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Main {
-public static void main(String[] args) {
 	
-	Scanner scan= new Scanner(System.in);
-	
-	ArrayList<Etudient> ListEtudient= new ArrayList<Etudient>();
-	ArrayList<Employe> ListEmp= new ArrayList<Employe>();
-	ArrayList<Books> LisLiver= new ArrayList<Books>();
-	String Nom,prenom,email,filiere,telephone,type,langue;
-	Nom=prenom=email=filiere=telephone=type=langue="";
-	int age;
-	int id;
-	Etudient etud = new Etudient();
-	Books livre= new Books();
-	Employe emp=new Employe();
-	while(true) {
-		
-		 System.out.println("entrer une methode :\n Ajouter : + \n Supprimer :- \n Modifier : modifier");
-		 String method=scan.next();
-		 String choix="";
-		 
-	switch(method) {
-	
-	  	case "+":
-		  System.out.println("pour  ajouter etudient -> etud \n  ou pour ajouter employe->emp \n ou pour ajouter livre->livre");
-		    choix= scan.next();
-					   switch(choix) {
-					   case "etud":
-						   
-						   System.out.println("entrer le Nom de  etudient");
-							 Nom= scan.next();
-							 System.out.println("entrer le prenom de  etudient");
-							 prenom= scan.next();
-							 System.out.println("entrer le email de  etudient");
-							 email= scan.next();
-							 System.out.println("entrer le filiere de  etudient");
-							 filiere= scan.next();
-							 etud=  new Etudient(Nom,prenom,email,filiere);
-							etud.Ajouteretudient(etud, ListEtudient);
-						break;
-						   case "emp":
-							   System.out.println("entrer le Nom de  employee");
-								 Nom= scan.next();
-								 System.out.println("entrer le prenom de  employee");
-								 prenom= scan.next();
-								 System.out.println("entrer le email de  employee");
-								 email= scan.next();
-								 System.out.println("entrer le filiere de  employee");
-								 filiere= scan.next();
-								 System.out.println("entrer le numero telephone de  employee");
-								 telephone= scan.next();
-								 System.out.println("entrer l'age de  employee");
-								 age= scan.nextInt();
-								 emp= new Employe(Nom,prenom,email,filiere,telephone, age);
-								emp.AjouterEmployee(emp, ListEmp);
-								break;
-								   case "livre":
-									   	 System.out.println("entrer le Nom de  liver");
-										 Nom= scan.next();
-										 System.out.println("entrer le type de  liver");
-										 type= scan.next();
-										 System.out.println("entrer la langue de  liver");
-										 langue= scan.next();
-										 livre= new Books(Nom,type,langue);
-										 livre.ajouterLivre(livre, LisLiver);
-										 
-										 break;
-						default:
-							 
-							
-								   }
-		
-	    break;
-	  		case "-":
-	  			
-	  			System.out.println("pour  supprimer etudient -> etud \n  ou pour supprimer employe->emp \n ou pour supprimer livre->livre");
-			    choix= scan.next();
-	  			switch(choix) {
-	  				case "livre":
-	  					if(LisLiver.size()>0) {
-	  			System.out.println("les livres  : \n " + LisLiver); 
-	  			System.out.println("entrer l id quel dois supprimer ");
-	  			id= scan.nextInt();
-	  			livre.supprimerLivre(livre, LisLiver,id);
-	  			}else {
-	  				System.out.println("livre vide Ajouter des livres");
-	  			}
-	  			
-	  			break;
-	  		case "etud":
-	  			if(ListEtudient.size()>0) {
-	  			System.out.println("les etudients  : \n " + ListEtudient); 
-	  			System.out.println("entrer l id quel dois supprimer ");
-	  			id= scan.nextInt();
-	  			
-	  			etud.supprimerEtudient(ListEtudient,id);
-	  			}else {
-	  				System.out.println("etudient vide Ajouter des etudients");
-	  			}
-	  			break;
-			   
-	 		case "emp":
-	 			if(ListEmp.size()>0) {
-	  			System.out.println("les employee  : \n " + ListEmp); 
-	  			System.out.println("entrer l id quel dois supprimer ");
-	  			id= scan.nextInt();
-	  			emp.supprimerEmployee(ListEmp, id);
-	 			}else {
-	 				System.out.println("employe vide Ajouter des employe");
-	 			}
-	  			
-	  			break;
-	default:
-	
-	  			}
-	  			break;
-	  		case "modifier":
-	  			System.out.println("pour  modifier etudient -> etud \n  ou pour modifier employe->emp \n ou pour modifier livre->livre");
-			    choix= scan.next();
-			    switch(choix) {
-  				case "livre":
-  					if(LisLiver.size()>0) {
-  						System.out.println("les livres  : \n " + LisLiver); 
-  		  				System.out.println("entrer l id quel dois modifier ");
-  		  				id= scan.nextInt();
-  		  				System.out.println("entrer le Nom de  liver");
-  		  				Nom= scan.next();
-  		  				System.out.println("entrer le type de  liver");
-  		  				type= scan.next();
-  		  				System.out.println("entrer la langue de  liver");
-  		  				langue= scan.next();
-  		  				//appel method modifierLiver(....);
-		  		  		livre.modifierLivre(LisLiver, id, Nom, type, langue);
-		  		  		System.out.println(" livre " + LisLiver);
-  					}else {
-  						System.out.println("livre vide Ajouter des livres");
-  					}
-		  		  		break;
-  				case "etud":
-  					if(ListEtudient.size()>0) {
-						System.out.println("les etudient  : \n " + ListEtudient); 
-		  				System.out.println("entrer l id quel dois modifier ");
-		  				id= scan.nextInt();
-		  				 System.out.println("entrer le Nom de  etudient");
-						 Nom= scan.next();
-						 System.out.println("entrer le prenom de  etudient");
-						 prenom= scan.next();
-						 System.out.println("entrer le email de  etudient");
-						 email= scan.next();
-						 System.out.println("entrer le filiere de  etudient");
-						 filiere= scan.next();
-						 //appel method modifierEtudient
-	  		  		etud.modifierEtudient(ListEtudient, id, Nom,prenom,email,filiere);
-	  	
-	  		  		System.out.println(" etudient " + ListEtudient);
-					
-  					}else {
-  						System.out.println("etudient vide Ajouter des etudients");
-  					}
-  					
-  					break;
-					
-  				case "emp":
-  					if(ListEmp.size()>0) {
-  					System.out.println("les employes  : \n " + ListEmp); 
-	  				System.out.println("entrer l id quel dois modifier ");
-	  				id= scan.nextInt();
-  					 System.out.println("entrer le Nom de  employee");
-					 Nom= scan.next();
-					 System.out.println("entrer le prenom de  employee");
-					 prenom= scan.next();
-					 System.out.println("entrer le email de  employee");
-					 email= scan.next();
-					 System.out.println("entrer le filiere de  employee");
-					 filiere= scan.next();
-					 System.out.println("entrer le numero telephone de  employee");
-					 telephone= scan.next();
-					 System.out.println("entrer l'age de  employee");
-					 age= scan.nextInt();
-						 //appel method modifierEmploye
-	  		  		emp.modifierEmploye(ListEmp, id, Nom, prenom, email, filiere, telephone, age);
-	  	
-	  		  		System.out.println(" employe " + ListEmp);
-					
-			    }else {
-						System.out.println("employe vide Ajouter des employes");
-					}
-	  		  		break;
-default:
 
-			    }
-		  
-	  default:
+	public static void main(String[] args) {
+		ArrayList<Lecteur> ListLecteur= new ArrayList<Lecteur>();
+		ArrayList<Livre> listLivre= new ArrayList<Livre>();
+		ArrayList<Bienfaiteur> ListBienfaiteur= new ArrayList<Bienfaiteur>();
+		
+		String nom, prenom, email, titre, edition;
+		int id, num, date_edition;
+		
+		Lecteur _Lecteur = new Lecteur();
+		Livre _Livre = new Livre();
+		Bienfaiteur _Bienfaiteur = new Bienfaiteur();
+		
+		Scanner sc= new Scanner(System.in);
+		while(true) {
 			
-	}
-	}
-	
-	}
+			 System.out.println("Menu :\n Ajouter : 1 / Modifier : 2 / Supprimer : 3");
+			 String Menu=sc.next();
+			 String Options="";
+			 
+			 switch(Menu) {
+			 		case "1": System.out.println("Ajouter Lecteur -> 11  /  Ajouter Livre-> 12   /  Ajouter Livre->13");
+			 			Options= sc.next();
+			 				switch(Options) {
+			 					case "11":
+			 						 System.out.println("Entrer le nom de lecteur");
+									 nom= sc.next();
+									 System.out.println("Entrer le prenom de lecteur");
+									 prenom= sc.next();
+									 System.out.println("Entrer le email de lecteur");
+									 email= sc.next();
+									 System.out.println("Entrer le numero de lecteur");
+									 num= sc.nextInt();
+									 _Lecteur= new Lecteur(nom, prenom, email, num);
+									 Lecteur.AjouterLecteur(_Lecteur, ListLecteur);
+								break;
+			 						case "12":
+				 						 System.out.println("Entrer le titre de livre");
+										  titre= sc.next();
+										 System.out.println("Entrer l'edition de livre");
+										  edition= sc.next();
+										 System.out.println("Entrer la date d'edition de livre");
+										  date_edition= sc.nextInt();
+										  _Livre = new Livre(titre, edition, date_edition);
+										  Livre.ajouterLivre(_Livre, listLivre);
+			 						break;
+			 							case "13":
+			 								System.out.println("Entrer le nom de bienfaiteur");
+			 								nom= sc.next();
+			 								System.out.println("Entrer le prenom de bienfaiteur");
+			 								prenom= sc.next();
+			 								System.out.println("Entrer le email de bienfaiteur");
+			 								email= sc.next();
+			 								System.out.println("Entrer le numero de bienfaiteur");
+			 								num= sc.nextInt();
+			 								_Bienfaiteur = new Bienfaiteur(nom, prenom, email, num);
+			 								Bienfaiteur.Ajouterbienfaiteur(_Bienfaiteur, ListBienfaiteur);
+			 							break;
+						   }
+			 		break;
+			 			case "2": System.out.println("Modifier Lecteur -> 21  /  Modifier Livre-> 22   /  Modifier Livre->23");
+			 				Options= sc.next();
+			 				switch(Options) {
+		 						case "21":
+		 		  					if(ListLecteur.size()>0) {
+		 		  						System.out.println("La liste des lecteur " + ListLecteur);
+		 		  						System.out.println("Entrer l id quel dois modifier ");
+		 		  		  				id= sc.nextInt();
+		 		  						System.out.println("Entrer le nom de lecteur");
+		 		  						nom= sc.next();
+		 		  						System.out.println("Entrer le prenom de lecteur");
+		 		  						prenom= sc.next();
+		 		  						System.out.println("Entrer le email de lecteur");
+		 		  						email= sc.next();
+		 		  						System.out.println("Entrer le numero de lecteur");
+		 		  						num= sc.nextInt();
+		 		  						Lecteur.modifierLecteur(ListLecteur, nom, prenom, email, num);
+		 		  						System.out.println("les Lecteur  : \n " + ListLecteur);
+		 		  						}else {
+		 			  						System.out.println("List des lecteurs est vide Ajouter des lecteurs");
+		 			  					}
+		 						break;
+		 							case "22":
+			 		  					if(listLivre.size()>0) {
+			 		  						System.out.println("La liste des livres " + listLivre); 
+			 		  						System.out.println("Entrer l id quel dois modifier ");
+			 		  		  				id= sc.nextInt();
+			 		  						System.out.println("Entrer le titre de livre");
+			 		  						titre= sc.next();
+			 		  						System.out.println("Entrer l'edition de livre");
+			 		  						edition= sc.next();
+			 		  						System.out.println("Entrer la date d edition de livre");
+			 		  						date_edition= sc.nextInt();
+			 		  						Livre.modifierLivre(listLivre, titre, edition, date_edition);
+			 		  						System.out.println("les Livre  : \n " + listLivre);
+		 								}else {
+		 			  						System.out.println("List des livres est vide Ajouter des livres");
+		 			  					}
+		 							break;
+		 							case "23":
+			 		  					if(ListBienfaiteur.size()>0) {
+			 		  						System.out.println("La liste des bienfaiteur " + ListBienfaiteur); 
+			 		  						System.out.println("Entrer l id quel dois modifier ");
+			 		  		  				id= sc.nextInt();
+			 		  						System.out.println("Entrer le nom de bienfaiteur");
+			 		  						nom= sc.next();
+			 		  						System.out.println("Entrer le prenom de bienfaiteur");
+			 		  						prenom= sc.next();
+			 		  						System.out.println("Entrer le email de bienfaiteur");
+			 		  						email= sc.next();
+			 		  						System.out.println("Entrer le numero de bienfaiteur");
+			 		  						num= sc.nextInt();
+			 		  						Bienfaiteur.modifierBienfaiteur(ListBienfaiteur, nom, prenom, email, num);
+			 		  						System.out.println("les Bienfaiteurs  : \n " + ListBienfaiteur);
+		 								}else {
+		 			  						System.out.println("List des Bienfaiteurs est vide Ajouter des Bienfaiteurs");
+		 			  					}
+										break;
+		 						}
+			 				break;
+			 			case "3": System.out.println("Supprimer Lecteur -> 31  /  Supprimer Livre-> 32   /  Supprimer Livre->33");
+			 				Options= sc.next();
+			 					switch(Options) {
+			 						case "31":
+			 							if(ListLecteur.size()>0) {
+			 				  			System.out.println("Liste des Lecteurs  : \n " + ListLecteur); 
+			 				  			System.out.println("Entrer l id quel dois supprimer ");
+			 				  			id= sc.nextInt();
+			 				  			Lecteur.supprimerLecteur(ListLecteur, id);
+			 				  			}else {
+			 				  				System.out.println("Liste lecteur est vide Ajouter des lecteurs");
+			 				  			}
+			 						break;	
+			 						case "32":
+			 							if(listLivre.size()>0) {
+			 				  			System.out.println("Liste des Livre  : \n " + listLivre); 
+			 				  			System.out.println("Entrer l id quel dois supprimer ");
+			 				  			id= sc.nextInt();
+			 				  			Livre.supprimerLivre(_Livre, listLivre, id);
+			 				  			}else {
+			 				  				System.out.println("Liste Livre est vide Ajouter des Livre");
+			 				  			}
+			 						break;
+			 						case "33":
+			 							if(ListBienfaiteur.size()>0) {
+			 				  			System.out.println("Liste des Bienfaiteur  : \n " + ListBienfaiteur); 
+			 				  			System.out.println("Entrer l id quel dois supprimer ");
+			 				  			id= sc.nextInt();
+			 				  			Bienfaiteur.supprimerBienfaiteur(ListBienfaiteur, id);
+			 				  			}else {
+			 				  				System.out.println("Liste Bienfaiteur est vide Ajouter des Bienfaiteur");
+			 				  			}
+			 						break;
+			 						default:
 
-
+			 						}
+			 			  default:
+		}
+	}
+}
 }

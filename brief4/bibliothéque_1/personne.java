@@ -1,58 +1,79 @@
-package bibliothéque_1;
+package jeBiref4;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
-public class personne{
-
-		private String nom;
-		private String prenom;
-		private String email;
-		private String filiere;
+public class Personne{
+		private String nom, prenom, email;
+		private int num;
+			public Personne() {}
 		
-			public personne() {}
-			public personne(String Nom,String Prenom,String Email,String Filiere) {
-				this.nom=Nom;
-				this.prenom=Prenom;
-				this.email=Email;
-				this.filiere=Filiere;
+
+			
+			public Personne(String nom, String prenom, String email, int num) {
+				super();
+				this.nom = nom;
+				this.prenom = prenom;
+				this.email = email;
+				this.num = num;
 			}
-			//nom
-			public String nom() {
+
+
+			public String getNom() {
 				return nom;
 			}
 
-			public void setNom(String n) {
-				this.nom = n;
+
+
+			public void setNom(String nom) {
+				this.nom = nom;
 			}
-			//prenom
-			public String prenom() {
+
+
+
+			public String getPrenom() {
 				return prenom;
 			}
 
-			public void setPrenom(String p) {
-				this.prenom = p;
+
+
+			public void setPrenom(String prenom) {
+				this.prenom = prenom;
 			}
-			//email
-			public String email() {
+
+
+
+			public String getEmail() {
 				return email;
 			}
 
-			public void setEmail(String E) {
-				this.email = E;
-			}
-			//filiere
-			public String filiere() {
-				return filiere;
+
+
+			public void setEmail(String email) {
+				this.email = email;
 			}
 
-			public void setFiliere(String f) {
-				this.filiere = f;
+
+
+
+
+
+
+
+			public int getNum() {
+				return num;
 			}
+
+
+
+			public void setNum(int num) {
+				this.num = num;
+			}
+
+
+
 			@Override
 			public String toString(  ) {
-				return   this.nom + "," + this.prenom + "," + this.email + "," + this.filiere ;
-						}
+					return   this.nom + "," + this.prenom + "," + this.email ;
+			}
 
 			
 }

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="QuizV2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/QuizV2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
